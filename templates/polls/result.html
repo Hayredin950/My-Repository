@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{q.qt}}</h1>
+
+{% for c in q.choice_set.all %}
+<li>{{c.ct}} {{ c.v }}
+    vote{{ c.v | pluralize }}</li>
+
+{% endfor %}
+<a href="{% url 'polls:index' %}">back to poll</a>
+<a href="{% url 'polls:detail' q.id %}">vote again</a>
+
+
+
+
+{% endblock %}

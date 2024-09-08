@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if ql %}
+{% for q in ql %}
+<p>{{q.qt}}</p>
+<a href="{% url 'polls:detail' q.id %}">vote now</a>
+<a href="{% url 'polls:result' q.id %}">result</a>
+{% endfor %}
+{% else %}
+<p>no question available</p>
+{% endif %}
+<a href="{% url 'pages:hayre' %}">
+    <h1>back to home</h1>
+</a>
+
+{% endblock %}
